@@ -1,0 +1,4 @@
+TURSO_AUTH_TOKEN=
+# Public frontend URL, used for SEO canonical links.
+SITE_URL=https://your-frontend.example
+SITE_LOGO_URL=

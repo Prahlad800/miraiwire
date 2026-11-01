@@ -5,3 +5,10 @@ backend/.env
 
 backend/data/
 backend/tests/__pycache__/
+
+node_modules/
+.wrangler/
+.worker-build/
+.dev.vars
+.dev.vars.*
+!.dev.vars.example

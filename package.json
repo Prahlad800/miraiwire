@@ -1,0 +1,21 @@
+{
+  "name": "miraiwire-cloudflare",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test cloudflare/test/*.test.js",
+    "build": "wrangler deploy --dry-run --outdir .worker-build",
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.11.2",
+    "franc-min": "^6.2.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.156.0"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
+}
