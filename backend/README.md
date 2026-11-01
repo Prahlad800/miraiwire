@@ -216,3 +216,10 @@ liveness; `/ready` checks database access; `/api/v1/feeds/details` shows individ
 last attempt/success/error/next due time. Both API and worker must remain running
 for automatic ingestion. The check loop may start a fetch up to roughly 30 seconds
 after its due time (plus any ongoing network work). Disabled feeds do not fetch.
+
+Slug detail and related APIs are supported: `/api/v1/news/{slug}` and
+`/api/v1/news/{slug}/related`. Every news object includes `slug`, `path`, `api_path`.
+Existing numeric ID APIs continue to work. The slug is title text (up to 100 ASCII
+characters) followed by the unique news ID, with `news` as the empty-title fallback.
+SEO canonical, schema, breadcrumbs and list URLs use `SITE_URL/news/{slug}`;
+the frontend must render that route. Titles are not rewritten by the RSS ingester.

@@ -106,6 +106,20 @@ class NewsTests(unittest.TestCase):
    story=next(row for row in page['data'] if row['url']=='https://example.com/scheduled')
    for url in ['/api/v1/home','/api/v1/home?category=technology',f"/api/v1/news/{story['id']}",f"/api/v1/news/{story['id']}/related",'/api/v1/news/search?q=technology','/api/v1/news/search?q=technology&category=technology','/health']:
     self.assertEqual(client.get(url).status_code,200)
+ def test_slug_routes_and_seo(self):
+  story=self.client.get('/api/v1/news/1').json
+  self.assertEqual(story['data']['slug'],'ai-launch-1')
+  self.assertEqual(story['data']['api_path'],'/api/v1/news/ai-launch-1')
+  self.assertEqual(self.client.get(story['data']['api_path']).json,story)
+  self.assertTrue(story['seo']['canonical'].endswith('/news/ai-launch-1'))
+  self.assertEqual(story['seo']['open_graph']['og:url'],story['seo']['canonical'])
+  self.assertEqual(story['seo']['json_ld'][0]['url'],story['seo']['canonical'])
+  related=self.client.get('/api/v1/news/ai-launch-1/related')
+  self.assertEqual(related.status_code,200)
+  self.assertEqual(related.json['data'][0]['slug'],'new-chip-2')
+  self.assertEqual(self.client.get('/api/v1/home').json['data'][0]['slug'],'cricket-final-3')
+  for url in ['/api/v1/news/wrong-1','/api/v1/news/wrong-1/related','/api/v1/news/title-999','/api/v1/news/missing','/api/v1/news/999999999999999999999999999']:
+   self.assertEqual(self.client.get(url).status_code,404)
  def test_catalog(self):
   config=load_settings()
   self.assertEqual(len(config['feeds']),108)

@@ -24,9 +24,16 @@ def metadata(title, desc, canonical, image=None, article=False, index=True):
         result['twitter']['twitter:image']=image
     return result
 
+def news_slug(story):
+    title = re.sub('[^a-z0-9]+', '-', story['title'].lower()).strip('-')[:100].rstrip('-') or 'news'
+    return title + '-' + str(story['id'])
+
+def with_slug(story):
+    slug = news_slug(story)
+    return dict(story, slug=slug, path='/news/' + slug, api_path='/api/v1/news/' + slug)
+
 def article_seo(story):
-    slug=re.sub('[^a-z0-9]+','-',story['title'].lower()).strip('-')[:100].rstrip('-')
-    url=base()+'/news/'+str(story['id'])+'/'+slug
+    url=base()+'/news/'+news_slug(story)
     desc=description(story['summary'] or story['title'])
     result=metadata(story['title']+' | '+site_name(),desc,url,story.get('image_url'),True)
     schema={'@context':'https://schema.org','@type':'NewsArticle','@id':url+'#article',

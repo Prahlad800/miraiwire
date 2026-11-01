@@ -81,3 +81,9 @@ References:
 - https://developers.cloudflare.com/workers/ci-cd/builds/configuration/
 - https://developers.cloudflare.com/workers/configuration/cron-triggers/
 - https://developers.cloudflare.com/workers/platform/limits/
+
+Slug URLs: every news object includes `slug`, `path`, `api_path`. Fetch details at
+`/api/v1/news/{slug}` and related at `/api/v1/news/{slug}/related`. Numeric ID routes
+remain supported. SEO URLs use the frontend route `SITE_URL/news/{slug}`, which
+the frontend must implement. Slugs include a unique numeric suffix, allowing
+indexed database lookups and avoiding collisions between identical headlines.

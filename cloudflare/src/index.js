@@ -1,7 +1,7 @@
 import feedConfig from '../../backend/feeds.json' with {type:'json'};
 import {TursoDatabase} from './database.js';
 import {allFeeds,intervalMinutes,PROVIDERS,runScheduled} from './rss.js';
-import {articleSeo,listingSeo} from './seo.js';
+import {articleSeo,listingSeo,newsSlug,withSlug} from './seo.js';
 const IMAGE="image_url IS NOT NULL AND TRIM(image_url) != ''";
 const headers={'Content-Type':'application/json; charset=utf-8','Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods':'GET, OPTIONS','Access-Control-Allow-Headers':'Content-Type','X-Content-Type-Options':'nosniff','Cache-Control':'no-store'};
 const json=(value,status=200)=>new Response(JSON.stringify(value),{status,headers});
@@ -13,14 +13,14 @@ function pagination(params) {
   if (!Number.isSafeInteger(page)||page<1||limit<1||limit>100||!Number.isSafeInteger((page-1)*limit)) throw new BadRequest('Invalid request parameters');
   return {page,limit};
 }
-const listResult=(data,total,page,limit)=>({data,page,limit,total,total_pages:Math.ceil(total/limit)});
+const listResult=(data,total,page,limit)=>({data:data.map(withSlug),page,limit,total,total_pages:Math.ceil(total/limit)});
 export function createHandler({config=feedConfig,dbFactory=env=>new TursoDatabase(env)}={}) {
   return async function handler(request,env) {
     if(request.method==='OPTIONS') return new Response(null,{status:204,headers});
     if(request.method!=='GET') return json({error:'Method not allowed'},405);
     const {pathname:path,searchParams:params}=new URL(request.url);
     if(path==='/health') return json({status:'ok'});
-    if(!['/ready','/api/v1/home','/api/v1/news/search','/api/v1/feeds','/api/v1/feeds/details'].includes(path) && !/^\/api\/v1\/news\/\d+(\/related)?$/.test(path)) return json({error:'Not found'},404);
+    if(!['/ready','/api/v1/home','/api/v1/news/search','/api/v1/feeds','/api/v1/feeds/details'].includes(path) && !/^\/api\/v1\/news\/[a-z0-9-]+(\/related)?$/.test(path)) return json({error:'Not found'},404);
     try {
       const db=dbFactory(env);
       await db.ensureSchema();
@@ -49,13 +49,15 @@ export function createHandler({config=feedConfig,dbFactory=env=>new TursoDatabas
         }
         return json(result);
       }
-      const match=path.match(/^\/api\/v1\/news\/(\d+)(\/related)?$/);
+      const match=path==='/api/v1/news/search' ? null : path.match(/^\/api\/v1\/news\/([a-z0-9-]+)(\/related)?$/);
       if(match) {
-        const id=Number(match[1]);
+        const numeric=/^\d+$/.test(match[1]);
+        const suffix=numeric ? match[1] : match[1].match(/-(\d+)$/)?.[1];
+        const id=suffix ? Number(suffix) : NaN;
         if(!Number.isSafeInteger(id)) return json({error:'News not found'},404);
         const story=(await db.query(`SELECT * FROM news WHERE id=? AND ${IMAGE}`,[id])).rows[0];
-        if(!story) return json({error:'News not found'},404);
-        if(!match[2]) return json({data:story,seo:articleSeo(story,env)});
+        if(!story || (!numeric && newsSlug(story)!==match[1])) return json({error:'News not found'},404);
+        if(!match[2]) return json({data:withSlug(story),seo:articleSeo(story,env)});
         const {page,limit}=pagination(params);
         const [count,rows]=await db.batch([
           {sql:`SELECT COUNT(*) AS total FROM news WHERE category=? AND id!=? AND ${IMAGE}`,args:[story.category,id]},

@@ -5,6 +5,7 @@ import {createHandler} from '../src/index.js';
 import {SCHEMA,TursoDatabase} from '../src/database.js';
 import {parseFeed,runScheduled,imageFromEntry} from '../src/rss.js';
 import config from '../../backend/feeds.json' with {type:'json'};
+import {newsSlug} from '../src/seo.js';
 function memoryDb(){
  const sqlite=new DatabaseSync(':memory:');
  return {async ensureSchema(){for(const sql of SCHEMA)sqlite.exec(sql);},
@@ -25,7 +26,7 @@ test('all database-backed API routes and SEO contract',async()=>{
   const home=await get('/api/v1/home?limit=2');assert.equal(home.body.total,3);assert.equal(home.body.data.length,2);assert.equal(home.body.seo.json_ld[0]['@type'],'CollectionPage');
   assert.equal((await get('/api/v1/home?page=2&limit=2')).body.data.length,1);
   assert.equal((await get('/api/v1/home?category=sports')).body.total,1);
-  const single=await get('/api/v1/news/1');assert.equal(single.body.seo.json_ld[0]['@type'],'NewsArticle');assert.match(single.body.seo.canonical,/mirai.example\/news\/1/);
+  const single=await get('/api/v1/news/1');assert.equal(single.body.seo.json_ld[0]['@type'],'NewsArticle');assert.match(single.body.seo.canonical,/mirai.example\/news\/ai-launch-1/);
   assert.equal((await get('/api/v1/news/1/related')).body.total,1);
   assert.equal((await get('/api/v1/news/4')).status,404);
   assert.equal((await get('/api/v1/news/search?q=AI')).body.total,2);
@@ -80,4 +81,25 @@ test('Turso protocol encoding, multiple statements, HTTP and SQL errors',async()
  const result=await db.batch([{sql:'SELECT ?',args:[7]},{sql:'INSERT INTO x VALUES(?)',args:[null]}]);assert.equal(result[0].rows[0].id,7);assert.equal(result[1].affected,1);assert.equal(sent.url,'https://test.example/v2/pipeline');assert.deepEqual(sent.body.requests[0].stmt.args,[{type:'integer',value:'7'}]);
  await assert.rejects(new TursoDatabase({TURSO_DATABASE_URL:'libsql://test.example',TURSO_AUTH_TOKEN:'test'},async()=>new Response('',{status:401})).query('SELECT 1'));
  await assert.rejects(new TursoDatabase({TURSO_DATABASE_URL:'libsql://test.example',TURSO_AUTH_TOKEN:'test'},async()=>Response.json({results:[{type:'error',error:{message:'secret'}}]})).query('SELECT 1'));
+});
+
+test('slug detail and related routes, unique suffixes and canonical consistency',async()=>{
+ const {db,get}=await setup();try{
+  const home=(await get('/api/v1/home')).body;
+  const story=home.data.find(row=>row.id===1);
+  assert.equal(story.slug,'ai-launch-1');assert.equal(story.api_path,'/api/v1/news/ai-launch-1');assert.equal(story.path,'/news/ai-launch-1');
+  const bySlug=await get(story.api_path), byId=await get('/api/v1/news/1');
+  assert.equal(bySlug.status,200);assert.deepEqual(bySlug.body,byId.body);
+  const canonical=bySlug.body.seo.canonical;
+  assert.equal(canonical,'https://mirai.example/news/ai-launch-1');
+  assert.equal(bySlug.body.seo.open_graph['og:url'],canonical);
+  assert.equal(bySlug.body.seo.json_ld[0].mainEntityOfPage['@id'],canonical);
+  assert.equal(bySlug.body.seo.json_ld[1].itemListElement.at(-1).item,canonical);
+  const related=(await get(story.api_path+'/related')).body;assert.equal(related.data[0].slug,'new-ai-chip-2');
+  for(const path of ['/api/v1/news/wrong-title-1','/api/v1/news/wrong-title-1/related','/api/v1/news/ai-launch-999','/api/v1/news/ai-launch','/api/v1/news/hidden-ai-4'])assert.equal((await get(path)).status,404,path);
+  assert.equal((await get('/api/v1/news/search?q=AI')).body.total,2);
+  assert.notEqual(newsSlug({id:1,title:'Same headline'}),newsSlug({id:2,title:'Same headline'}));
+  assert.equal(newsSlug({id:9,title:'!!!'}),'news-9');
+  assert.equal(newsSlug({id:10,title:'x'.repeat(200)}).length,103);
+ }finally{db.close();}
 });

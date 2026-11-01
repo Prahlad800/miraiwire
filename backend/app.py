@@ -1,11 +1,12 @@
 """SQLite news API. Run the separate worker to ingest RSS feeds."""
 import os
 import sqlite3
+import re
 from pathlib import Path
 from flask import Flask, jsonify, request
 from dotenv import load_dotenv
 from database import TursoConnection
-from seo import article_seo, listing_seo
+from seo import article_seo, listing_seo, news_slug, with_slug
 from feed_config import load_settings
 
 BASE = Path(__file__).resolve().parent
@@ -144,7 +145,7 @@ def create_app(config=None):
         with connect(app.config['DATABASE']) as db:
             total = db.execute('SELECT COUNT(*) FROM news' + where, params).fetchone()[0]
             rows = db.execute('SELECT * FROM news' + where + ' ORDER BY published_at DESC, id DESC LIMIT ? OFFSET ?', params + [limit, (page-1)*limit]).fetchall()
-        stories = [dict(row) for row in rows]
+        stories = [with_slug(dict(row)) for row in rows]
         return jsonify(data=stories, seo=listing_seo(stories, category, request.args.get('q', '').strip() if search else '', page), page=page, limit=limit, total=total, total_pages=(total+limit-1)//limit)
 
     @app.get('/api/v1/home')
@@ -155,24 +156,38 @@ def create_app(config=None):
     def search():
         return listing(True)
 
-    @app.get('/api/v1/news/<int:news_id>')
-    def detail(news_id):
+    def resolve_story(news_key):
+        numeric = re.fullmatch(r'[0-9]+', news_key)
+        suffix = numeric or re.search(r'-([0-9]+)$', news_key)
+        if not suffix:
+            return None
+        news_id = int(news_key if numeric else suffix.group(1))
+        if news_id > 9223372036854775807:
+            return None
         with connect(app.config['DATABASE']) as db:
             row = db.execute("SELECT * FROM news WHERE id=? AND image_url IS NOT NULL AND TRIM(image_url) != ''", (news_id,)).fetchone()
         if row is None:
-            return jsonify(error='News not found'), 404
-        return jsonify(data=dict(row), seo=article_seo(dict(row)))
+            return None
+        story = dict(row)
+        return story if numeric or news_slug(story) == news_key else None
 
-    @app.get('/api/v1/news/<int:news_id>/related')
-    def related(news_id):
+    @app.get('/api/v1/news/<news_key>')
+    def detail(news_key):
+        story = resolve_story(news_key)
+        if story is None:
+            return jsonify(error='News not found'), 404
+        return jsonify(data=with_slug(story), seo=article_seo(story))
+
+    @app.get('/api/v1/news/<news_key>/related')
+    def related(news_key):
         page, limit = pagination()
+        story = resolve_story(news_key)
+        if story is None:
+            return jsonify(error='News not found'), 404
         with connect(app.config['DATABASE']) as db:
-            row = db.execute("SELECT category FROM news WHERE id=? AND image_url IS NOT NULL AND TRIM(image_url) != ''", (news_id,)).fetchone()
-            if row is None:
-                return jsonify(error='News not found'), 404
-            total = db.execute("SELECT COUNT(*) FROM news WHERE category=? AND id!=? AND image_url IS NOT NULL AND TRIM(image_url) != ''", (row['category'], news_id)).fetchone()[0]
-            rows = db.execute("SELECT * FROM news WHERE category=? AND id!=? AND image_url IS NOT NULL AND TRIM(image_url) != '' ORDER BY published_at DESC, id DESC LIMIT ? OFFSET ?", (row['category'], news_id, limit, (page-1)*limit)).fetchall()
-        return jsonify(data=[dict(item) for item in rows], page=page, limit=limit, total=total, total_pages=(total+limit-1)//limit)
+            total = db.execute("SELECT COUNT(*) FROM news WHERE category=? AND id!=? AND image_url IS NOT NULL AND TRIM(image_url) != ''", (story['category'], story['id'])).fetchone()[0]
+            rows = db.execute("SELECT * FROM news WHERE category=? AND id!=? AND image_url IS NOT NULL AND TRIM(image_url) != '' ORDER BY published_at DESC, id DESC LIMIT ? OFFSET ?", (story['category'], story['id'], limit, (page-1)*limit)).fetchall()
+        return jsonify(data=[with_slug(dict(item)) for item in rows], page=page, limit=limit, total=total, total_pages=(total+limit-1)//limit)
 
     return app
 

@@ -9,7 +9,7 @@ class SeoTursoTests(unittest.TestCase):
   story=dict(id=42,title='New AI launch',summary='A useful English news summary. '*20,source='BBC News',category='technology',image_url=None,published_at='2026-11-01T10:00:00+00:00',url='https://www.bbc.com/news/example')
   seo=article_seo(story)
   self.assertLessEqual(len(seo['description']),160)
-  self.assertIn('/news/42/new-ai-launch',seo['canonical'])
+  self.assertIn('/news/new-ai-launch-42',seo['canonical'])
   self.assertEqual(seo['json_ld'][0]['@type'],'NewsArticle')
   self.assertEqual(seo['json_ld'][0]['publisher']['name'],'BBC News')
   self.assertNotIn('author',seo['json_ld'][0])

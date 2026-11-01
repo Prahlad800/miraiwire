@@ -15,10 +15,17 @@ function meta(title,description,canonical,env,image=null,article=false,index=tru
   if (image) {result.open_graph['og:image']=image; result.twitter['twitter:image']=image;}
   return result;
 }
+export function newsSlug(story) {
+  const title=story.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,100).replace(/-$/,'') || 'news';
+  return `${title}-${story.id}`;
+}
+export function withSlug(story) {
+  const slug=newsSlug(story);
+  return {...story,slug,path:`/news/${slug}`,api_path:`/api/v1/news/${slug}`};
+}
 export function articleSeo(story,env) {
   const {base,name}=settings(env);
-  const slug=story.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,100).replace(/-$/,'');
-  const canonical=`${base}/news/${story.id}/${slug}`;
+  const canonical=`${base}/news/${newsSlug(story)}`;
   const description=trimDescription(story.summary || story.title);
   const result=meta(`${story.title} | ${name}`,description,canonical,env,story.image_url,true);
   const schema={'@context':'https://schema.org','@type':'NewsArticle','@id':canonical+'#article',headline:story.title,description,url:canonical,
