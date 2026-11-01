@@ -2,3 +2,6 @@ backend/.venv/
 backend/__pycache__/
 backend/**/*.py[cod]
 backend/.env
+
+backend/data/
+backend/tests/__pycache__/

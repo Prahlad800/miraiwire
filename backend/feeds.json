@@ -1,0 +1,993 @@
+{
+  "language": "en",
+  "google_news": {
+    "fetch_interval_minutes": 30,
+    "last_fetched_at": null,
+    "feeds": [
+      {
+        "id": 1,
+        "name": "technology",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=technology&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 2,
+        "name": "artificial intelligence",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=artificial+intelligence&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 3,
+        "name": "machine learning",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=machine+learning&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 4,
+        "name": "OpenAI",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=OpenAI&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 5,
+        "name": "Google AI",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Google+AI&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 6,
+        "name": "Microsoft AI",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Microsoft+AI&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 7,
+        "name": "Apple",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Apple&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 8,
+        "name": "Samsung",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Samsung&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 9,
+        "name": "smartphones",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=smartphones&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 10,
+        "name": "Android",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Android&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 11,
+        "name": "iPhone",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=iPhone&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 12,
+        "name": "cybersecurity",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=cybersecurity&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 13,
+        "name": "data privacy",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=data+privacy&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 14,
+        "name": "cloud computing",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=cloud+computing&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 15,
+        "name": "software development",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=software+development&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 16,
+        "name": "semiconductors",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=semiconductors&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 17,
+        "name": "Nvidia",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Nvidia&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 18,
+        "name": "robotics",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=robotics&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 19,
+        "name": "quantum computing",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=quantum+computing&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 20,
+        "name": "space technology",
+        "category": "technology",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=space+technology&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 21,
+        "name": "India news",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=India+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 22,
+        "name": "Indian government",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Indian+government&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 23,
+        "name": "Delhi news",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Delhi+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 24,
+        "name": "Mumbai news",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Mumbai+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 25,
+        "name": "Bengaluru news",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Bengaluru+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 26,
+        "name": "Chennai news",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Chennai+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 27,
+        "name": "Kolkata news",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Kolkata+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 28,
+        "name": "Hyderabad news",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Hyderabad+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 29,
+        "name": "Uttar Pradesh",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Uttar+Pradesh&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 30,
+        "name": "Bihar",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Bihar&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 31,
+        "name": "Rajasthan",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Rajasthan&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 32,
+        "name": "Gujarat",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Gujarat&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 33,
+        "name": "Maharashtra",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Maharashtra&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 34,
+        "name": "Kerala",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Kerala&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 35,
+        "name": "Tamil Nadu",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Tamil+Nadu&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 36,
+        "name": "Karnataka",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Karnataka&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 37,
+        "name": "Indian railways",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Indian+railways&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 38,
+        "name": "India education",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=India+education&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 39,
+        "name": "India infrastructure",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=India+infrastructure&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 40,
+        "name": "India agriculture",
+        "category": "india",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=India+agriculture&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 41,
+        "name": "world news",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=world+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 42,
+        "name": "United States",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=United+States&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 43,
+        "name": "United Kingdom",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=United+Kingdom&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 44,
+        "name": "Europe news",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Europe+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 45,
+        "name": "Japan news",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Japan+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 46,
+        "name": "China news",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=China+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 47,
+        "name": "Australia news",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Australia+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 48,
+        "name": "Canada news",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Canada+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 49,
+        "name": "Middle East",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Middle+East&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 50,
+        "name": "Africa news",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Africa+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 51,
+        "name": "United Nations",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=United+Nations&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 52,
+        "name": "international relations",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=international+relations&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 53,
+        "name": "climate change",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=climate+change&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 54,
+        "name": "global economy",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=global+economy&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 55,
+        "name": "renewable energy",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=renewable+energy&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 56,
+        "name": "science research",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=science+research&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 57,
+        "name": "space exploration",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=space+exploration&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 58,
+        "name": "NASA",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=NASA&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 59,
+        "name": "ISRO",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=ISRO&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 60,
+        "name": "environment news",
+        "category": "world",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=environment+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 61,
+        "name": "business news",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=business+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 62,
+        "name": "India economy",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=India+economy&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 63,
+        "name": "startups",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=startups&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 64,
+        "name": "venture capital",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=venture+capital&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 65,
+        "name": "fintech",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=fintech&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 66,
+        "name": "banking news",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=banking+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 67,
+        "name": "stock market",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=stock+market&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 68,
+        "name": "personal finance",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=personal+finance&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 69,
+        "name": "ecommerce",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=ecommerce&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 70,
+        "name": "electric vehicles",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=electric+vehicles&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 71,
+        "name": "automotive industry",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=automotive+industry&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 72,
+        "name": "telecom industry",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=telecom+industry&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 73,
+        "name": "manufacturing",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=manufacturing&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 74,
+        "name": "real estate",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=real+estate&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 75,
+        "name": "aviation industry",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=aviation+industry&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 76,
+        "name": "energy industry",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=energy+industry&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 77,
+        "name": "retail industry",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=retail+industry&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 78,
+        "name": "cryptocurrency",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=cryptocurrency&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 79,
+        "name": "digital payments",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=digital+payments&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 80,
+        "name": "employment news",
+        "category": "business",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=employment+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 81,
+        "name": "sports news",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=sports+news&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 82,
+        "name": "cricket",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=cricket&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 83,
+        "name": "IPL",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=IPL&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 84,
+        "name": "Indian cricket",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Indian+cricket&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 85,
+        "name": "football",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=football&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 86,
+        "name": "Premier League",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Premier+League&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 87,
+        "name": "Champions League",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Champions+League&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 88,
+        "name": "tennis",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=tennis&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 89,
+        "name": "badminton",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=badminton&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 90,
+        "name": "hockey",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=hockey&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 91,
+        "name": "Olympics",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Olympics&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 92,
+        "name": "Formula One",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=Formula+One&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 93,
+        "name": "basketball",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=basketball&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 94,
+        "name": "chess",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=chess&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 95,
+        "name": "kabaddi",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=kabaddi&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 96,
+        "name": "wrestling",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=wrestling&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 97,
+        "name": "athletics",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=athletics&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 98,
+        "name": "table tennis",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=table+tennis&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 99,
+        "name": "volleyball",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=volleyball&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      },
+      {
+        "id": 100,
+        "name": "golf",
+        "category": "sports",
+        "enabled": false,
+        "url": "https://news.google.com/rss/search?q=golf&hl=en-IN&gl=IN&ceid=IN%3Aen",
+        "provider": "google_news",
+        "language": "en"
+      }
+    ]
+  },
+  "the_hindu": {
+    "fetch_interval_minutes": 20,
+    "last_fetched_at": null,
+    "feeds": [
+      {
+        "id": 105,
+        "name": "The Hindu India",
+        "url": "https://www.thehindu.com/news/national/feeder/default.rss",
+        "category": "india",
+        "provider": "the_hindu",
+        "language": "en",
+        "enabled": true
+      },
+      {
+        "id": 106,
+        "name": "The Hindu International",
+        "url": "https://www.thehindu.com/news/international/feeder/default.rss",
+        "category": "world",
+        "provider": "the_hindu",
+        "language": "en",
+        "enabled": true
+      },
+      {
+        "id": 107,
+        "name": "The Hindu Business",
+        "url": "https://www.thehindu.com/business/feeder/default.rss",
+        "category": "business",
+        "provider": "the_hindu",
+        "language": "en",
+        "enabled": true
+      },
+      {
+        "id": 108,
+        "name": "The Hindu Technology",
+        "url": "https://www.thehindu.com/sci-tech/technology/feeder/default.rss",
+        "category": "technology",
+        "provider": "the_hindu",
+        "language": "en",
+        "enabled": true
+      }
+    ]
+  },
+  "bbc": {
+    "fetch_interval_minutes": 15,
+    "last_fetched_at": null,
+    "feeds": [
+      {
+        "id": 101,
+        "name": "BBC Top Stories",
+        "url": "https://feeds.bbci.co.uk/news/rss.xml",
+        "category": "world",
+        "provider": "bbc",
+        "language": "en",
+        "enabled": true
+      },
+      {
+        "id": 102,
+        "name": "BBC World",
+        "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+        "category": "world",
+        "provider": "bbc",
+        "language": "en",
+        "enabled": true
+      },
+      {
+        "id": 103,
+        "name": "BBC Technology",
+        "url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+        "category": "technology",
+        "provider": "bbc",
+        "language": "en",
+        "enabled": true
+      },
+      {
+        "id": 104,
+        "name": "BBC Business",
+        "url": "https://feeds.bbci.co.uk/news/business/rss.xml",
+        "category": "business",
+        "provider": "bbc",
+        "language": "en",
+        "enabled": true
+      }
+    ]
+  }
+}
