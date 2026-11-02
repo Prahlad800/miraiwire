@@ -1,5 +1,6 @@
 {
   "language": "en",
+  "auto_fetch_enabled": false,
   "google_news": {
     "fetch_interval_minutes": 30,
     "last_fetched_at": null,
